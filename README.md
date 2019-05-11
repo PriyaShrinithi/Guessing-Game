@@ -1,0 +1,2 @@
+# Kiyosaki-Ideals
+Ideas
