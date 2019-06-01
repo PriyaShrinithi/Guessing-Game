@@ -19,7 +19,7 @@ public:
 	void check_wager();
 	void check_value(int guess);
 	Game();
-	Game(guess);
+	Game(guess); //edit 1;
 	
 };
 Game::Game()
@@ -50,7 +50,7 @@ void Game::check_wager()
 		exit(1);
 	}
 }
-void Game::check_value()
+void Game::check_value() //edit 2
 {
     cout<<"\nEnter Guess\n"
     cin>>guess;
@@ -59,7 +59,7 @@ void Game::check_value()
         throw 'o';
     }
 }
-Game::Game(int guess)
+Game::Game(int guess) //edit 3
 {
 	dice = rand() % 10 + 1;
 	if (guess == dice) {
