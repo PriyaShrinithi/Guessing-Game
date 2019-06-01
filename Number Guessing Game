@@ -1,0 +1,96 @@
+
+#include<iostream>
+#include<stdlib.h>
+#include<time.h>
+
+using namespace std;
+class Game
+{
+	string name;
+	string rule1 = "Your Wager Must Not Exceed  Your Deposit\n";
+	string rule2 = "The Guess Must Lie Between 0 and 10";
+	string rule3 = "For Every Win You Are Returned 10 times the wager\nFor Every Loss, You Return You Wager";
+	string win = "YOU WIN!";
+	string loss = "SORRY FOR YOUR LOSS!";
+	int deposit, wager, dice, guess;
+
+public:
+	void player_details();
+	void check_wager();
+	void check_value(int guess);
+	Game();
+	Game(guess);
+	
+};
+Game::Game()
+{
+	cout << "\n\nRead Below to Know the Rules\n\n\n\n 1. " << rule1 << "\n2." << rule2 << "\n3. " << rule3 << endl;
+}
+void Game::player_details()
+{
+	cout << "\nEnter Name\n";
+	cin >> name;
+	cout << "\nEnter Deposit\n";
+	cin >> deposit;
+}
+void Game::check_wager()
+{
+	cout << "\nEnter Wager\n";
+	try {
+		cin >> wager;
+		if (wager <= deposit)
+		{
+		}
+		else throw 0;
+	}
+	catch (int a)
+	{
+		cout << endl;
+		cout << rule1 << endl;
+		exit(1);
+	}
+}
+void Game::check_value()
+{
+    cout<<"\nEnter Guess\n"
+    cin>>guess;
+    try{
+        if(guess<=0&&guess>10)
+        throw 'o';
+    }
+}
+Game::Game(int guess)
+{
+	dice = rand() % 10 + 1;
+	if (guess == dice) {
+		cout << win;
+		wager *= 10;
+		deposit += wager;
+	}
+	else {
+		cout << loss;
+		deposit -= wager;
+	}
+}
+
+int main()
+{
+	int option, choice;
+	int a;
+	Game g;
+	cout << "\nEnter 1 To Play\n";
+	cin >> option;
+	while (option == 1)
+	{
+		g.player_details();
+		do {
+			g.check_wager();
+			cout<<"\nEnter Your Guess\n";
+			cin>>a;
+			g(a);
+			cout << "\nEnter 1 to continue\n";
+		} while (choice == 1);
+	}
+
+	return 0;
+}
