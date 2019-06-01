@@ -1,0 +1,22 @@
+#include<iostream>
+#include<stdlib.h>
+#include<time.h>
+using namespace std;
+class Game
+{
+	string name;
+	string rule1 = "Your Wager Must Not Exceed Your Deposit\n";
+	string rule2 = "The Guess Must Never ";
+	int deposit, wager;
+	
+public:
+	void player_details();
+	void check_wager();
+	Game();
+	Game(int guess);
+
+};
+Game::Game()
+{
+	cout << "\n\nRead Below to Know the Rules\n\n\n\n 1. "<< rule1<<"\n2. "<<rule2<<"\n3. "<<rule 3
+}
