@@ -1,4 +1,3 @@
-
 #include<iostream>
 #include<stdlib.h>
 #include<time.h>
@@ -13,13 +12,13 @@ class Game
 	string win = "YOU WIN!";
 	string loss = "SORRY FOR YOUR LOSS!";
 	int deposit, wager, dice, guess;
+	void Game::check_value();
 
 public:
 	void player_details();
 	void check_wager();
-	void check_value(int guess);
 	Game();
-	Game(guess); //edit 1;
+	Game(int x);
 	
 };
 Game::Game()
@@ -50,17 +49,24 @@ void Game::check_wager()
 		exit(1);
 	}
 }
-void Game::check_value() //edit 2
+void Game::check_value()
 {
-    cout<<"\nEnter Guess\n"
-    cin>>guess;
+    
     try{
         if(guess<=0&&guess>10)
         throw 'o';
     }
+    catch(char a)
+    {
+    	cout<<endl;
+	cout<<rule2<<endl;
+	exit(1);
+    }
 }
-Game::Game(int guess) //edit 3
+Game::Game(int x) //edit 3
 {
+	guess=x;
+	check_value();
 	dice = rand() % 10 + 1;
 	if (guess == dice) {
 		cout << win;
@@ -76,7 +82,6 @@ Game::Game(int guess) //edit 3
 int main()
 {
 	int option, choice;
-	int a;
 	Game g;
 	cout << "\nEnter 1 To Play\n";
 	cin >> option;
@@ -84,10 +89,11 @@ int main()
 	{
 		g.player_details();
 		do {
+			int i;
 			g.check_wager();
 			cout<<"\nEnter Your Guess\n";
-			cin>>a;
-			g(a);
+			cin>>i;
+			g(i);
 			cout << "\nEnter 1 to continue\n";
 		} while (choice == 1);
 	}
