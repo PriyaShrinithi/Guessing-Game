@@ -8,7 +8,7 @@ using namespace std;
 
 Game::Game()
 {
-	cout << "\n\nRead Below to Know the Rules\n\n\n\n 1. " << rule1 << "\n2." << rule2 << "\n3. " << rule3 << endl;
+	cout << "\n\nRead Below to Know the Rules\n\n\n\n1. " << rule1 << "2. " << rule2 << "\n3. " << rule3 << endl;
 }
 void Game::player_details()
 {
@@ -17,7 +17,7 @@ void Game::player_details()
 	cout << "\nEnter Deposit\n";
 	cin >> deposit;
 }
-void Game::check_wager()
+void Game::check_wager()//works
 {
 	cout << "\nEnter Wager\n";
 	try {
@@ -34,25 +34,22 @@ void Game::check_wager()
 		exit(1);
 	}
 }
-void Game::check_value()
-{
-
-    try{
-        if(guess<=0&&guess>10)
-        throw 'o';
-    }
-    catch(char a)
-    {
-    	cout<<endl;
-	cout<<rule2<<endl;
-	exit(1);
-    }
-}
 Game::Game(int x) //edit 3
 {
-	guess=x;
-	check_value();
+	 try{
+        guess=x;
+        if(guess<=0&&guess>10)
+        throw rule2;
+    }
+    catch(string a)
+    {
+    	cout<<endl;
+        cout<<rule2<<endl;
+        exit(1);
+    }
+	srand(530);
 	dice = rand() % 10 + 1;
+	cout<<"The number is: "<<dice<<endl;
 	if (guess == dice) {
 		cout << win;
 		wager *= 10;
@@ -63,4 +60,5 @@ Game::Game(int x) //edit 3
 		deposit -= wager;
 	}
 }
+
 
