@@ -1,6 +1,7 @@
 #include<iostream>
 #include<stdlib.h>
 #include<time.h>
+#include<string.h>
 #include "Game.h"
 
 using namespace std;
