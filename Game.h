@@ -9,11 +9,9 @@ class Game
 	std::string win = "YOU WIN!";
 	std::string loss = "SORRY FOR YOUR LOSS!";
 	int deposit, wager, dice, guess;
-
 public:
 	void player_details();
 	void check_wager();
-	void check_value();
 	Game();
 	Game(int x);
 
