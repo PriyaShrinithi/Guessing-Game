@@ -1,7 +1,10 @@
 #include<iostream>
 #include<stdlib.h>
 #include<time.h>
+#include<string.h>
 #include "Game.h"
+
+using namespace std;
 
 Game::Game()
 {
@@ -33,7 +36,7 @@ void Game::check_wager()
 }
 void Game::check_value()
 {
-    
+
     try{
         if(guess<=0&&guess>10)
         throw 'o';
@@ -60,3 +63,4 @@ Game::Game(int x) //edit 3
 		deposit -= wager;
 	}
 }
+
